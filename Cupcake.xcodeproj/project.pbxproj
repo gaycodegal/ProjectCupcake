@@ -94,7 +94,7 @@
 		18D4F5A41E0EECE500349206 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "SDL_iOS/SDL2_ttf-2.0.14/Xcode-iOS/../../SDL2_image-2.0.1/Xcode-iOS/SDL_image.xcodeproj"; sourceTree = "<group>"; };
 		18D4F5AB1E0EED1100349206 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "SDL_iOS/SDL2-2.0.4/Xcode-iOS/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* SLUG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLUG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Cupcake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cupcake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -201,7 +201,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* SLUG.app */,
+				1D6058910D05DD3D006BFB54 /* Cupcake.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 			);
 			name = SLUG;
 			productName = "___PROJECTNAME___";
-			productReference = 1D6058910D05DD3D006BFB54 /* SLUG.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Cupcake.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -293,6 +293,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = SHWNS4KX37;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Cupcake" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -395,7 +400,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SHWNS4KX37;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -406,7 +411,8 @@
 					"$(inherited)",
 					"/Users/zythlander/Documents/Projects/SDL2-2.0.4/Xcode-iOS/Template",
 				);
-				PRODUCT_NAME = SLUG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Cupcake;
+				PRODUCT_NAME = Cupcake;
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "./SDL_iOS/SDL2_ttf-2.0.14 ./SDL_iOS/SDL2-2.0.4/include";
 			};
@@ -419,7 +425,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SHWNS4KX37;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = Info.plist;
@@ -428,7 +434,8 @@
 					"$(inherited)",
 					"/Users/zythlander/Documents/Projects/SDL2-2.0.4/Xcode-iOS/Template",
 				);
-				PRODUCT_NAME = SLUG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Cupcake;
+				PRODUCT_NAME = Cupcake;
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "./SDL_iOS/SDL2_ttf-2.0.14 ./SDL_iOS/SDL2-2.0.4/include";
 			};

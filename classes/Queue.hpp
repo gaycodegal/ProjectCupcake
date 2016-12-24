@@ -70,6 +70,10 @@ public:
             end_ = 0;
     }
     
+    /**
+     WARNING BROKEN, NEED TO HAVE EMPTY INSTANCE FOR THIS TO WORK.
+     A removed_ INSTEAD OF nill_
+     */
     void remove(Data data){
         bool first = true;
         unsigned int max = end_;
