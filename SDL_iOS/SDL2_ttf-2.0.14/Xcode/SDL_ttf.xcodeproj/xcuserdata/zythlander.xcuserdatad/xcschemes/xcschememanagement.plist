@@ -4,53 +4,35 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Create DMG.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>Framework.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<true/>
 			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Shared Library.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<true/>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>Standard DMG.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<true/>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>8</integer>
 		</dict>
 		<key>Static Library.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<true/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>BECDF5FE0761BA81005FE872</key>
+		<key>BE48FD5D07AFA17000BB41DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BECDF66D0761BA81005FE872</key>
+		<key>BE48FD6807AFA17000BB41DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BECDF6BB0761BA81005FE872</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DB313F7217554B71006C0E22</key>
+		<key>BE48FD6F07AFA17000BB41DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

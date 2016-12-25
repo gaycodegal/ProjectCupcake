@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0640"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-               BuildableName = "SLUG.app"
-               BlueprintName = "SLUG"
-               ReferencedContainer = "container:SLUG.xcodeproj">
+               BlueprintIdentifier = "182F00B11E0F411300F2EB37"
+               BuildableName = "Cupcake"
+               BlueprintName = "Cupcake"
+               ReferencedContainer = "container:Cupcake-Mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "Cupcake.app"
-            BlueprintName = "SLUG"
-            ReferencedContainer = "container:Cupcake.xcodeproj">
+            BlueprintIdentifier = "182F00B11E0F411300F2EB37"
+            BuildableName = "Cupcake"
+            BlueprintName = "Cupcake"
+            ReferencedContainer = "container:Cupcake-Mac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "Cupcake.app"
-            BlueprintName = "SLUG"
-            ReferencedContainer = "container:Cupcake.xcodeproj">
+            BlueprintIdentifier = "182F00B11E0F411300F2EB37"
+            BuildableName = "Cupcake"
+            BlueprintName = "Cupcake"
+            ReferencedContainer = "container:Cupcake-Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
-            BuildableName = "SLUG.app"
-            BlueprintName = "SLUG"
-            ReferencedContainer = "container:SLUG.xcodeproj">
+            BlueprintIdentifier = "182F00B11E0F411300F2EB37"
+            BuildableName = "Cupcake"
+            BlueprintName = "Cupcake"
+            ReferencedContainer = "container:Cupcake-Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
