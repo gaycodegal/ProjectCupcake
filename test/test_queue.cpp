@@ -51,6 +51,8 @@ int test_queue(){
         }
     }
     
+    delete temp;
+
     return 0;
 }
 

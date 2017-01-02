@@ -17,7 +17,7 @@ Core::Core(){
 }
 
 Core::~Core(){
-    
+    delete components;
 }
 
 Core * Core::getInstance(){

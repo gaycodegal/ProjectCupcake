@@ -21,8 +21,10 @@ public:
     unsigned long hash;
     Data value;
     HashEntry(const char * key, unsigned long hash, Data value) {
-        this->key = new char[std::strlen(key)];
+        unsigned long length = std::strlen(key) + 1;
+        this->key = new char[length];
         std::strcpy(this->key, key);
+        this->key[length - 1] = '\0';
         this->hash = hash;
         this->value = value;
     }

@@ -65,7 +65,8 @@ int test_hash(){
     assertEq(temp->get("T"), -1, "fail rem");
     assertEq(temp->get("v"), -1, "fail rem");
 
-    
+    delete temp;
+
     return 0;
 }
 

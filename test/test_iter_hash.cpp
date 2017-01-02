@@ -79,6 +79,7 @@ int test_iter_hash(){
     assertEq(temp->get(4), 6, "fail iteration 4");
     assertEq(temp->get(5), 8, "fail iteration 5");
     
+    delete temp;
     
     return 0;
 }

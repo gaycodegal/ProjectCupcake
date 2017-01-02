@@ -73,7 +73,7 @@ public:
     }
     
     /**
-     get one of the components attached to
+     remove one of the components attached to
      the Core by human - name.
      */
     Component * removeComponent(const char * name){
