@@ -26,8 +26,8 @@ private:
 public:
     
     static RandomSquares * getInstance(){
-        static RandomSquares * dispatcher = new RandomSquares();
-        return dispatcher;
+        static RandomSquares * instance = new RandomSquares();
+        return instance;
     }
     
     bool should_run(){

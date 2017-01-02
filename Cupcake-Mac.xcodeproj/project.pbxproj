@@ -56,6 +56,12 @@
 		182F00ED1E0F424E00F2EB37 /* global_init.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00971E0F40C300F2EB37 /* global_init.hpp */; };
 		182F01081E0F456100F2EB37 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F00F51E0F426E00F2EB37 /* SDL2_ttf.framework */; };
 		182F01091E0F456900F2EB37 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F01011E0F427E00F2EB37 /* SDL2_image.framework */; };
+		183666941E19DECB009B2548 /* test_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666931E19DECB009B2548 /* test_queue.cpp */; };
+		183666A01E19DF6B009B2548 /* TestModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1836669F1E19DF6B009B2548 /* TestModule.cpp */; };
+		183666A11E19DF6B009B2548 /* TestModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1836669F1E19DF6B009B2548 /* TestModule.cpp */; };
+		183666A41E1AD31C009B2548 /* test_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A31E1AD31C009B2548 /* test_hash.cpp */; };
+		183666A71E1AD418009B2548 /* testing_functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A51E1AD418009B2548 /* testing_functions.cpp */; };
+		18CE96541E1AD87200FCB988 /* test_iter_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */; };
 		18F007CF1E0F3B40002A30B4 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F007CA1E0F3B09002A30B4 /* libSDL2.a */; };
 		18F008181E0F3CED002A30B4 /* SDL_test_assert.c in Sources */ = {isa = PBXBuildFile; fileRef = 18F008091E0F3CED002A30B4 /* SDL_test_assert.c */; };
 		18F008191E0F3CED002A30B4 /* SDL_test_assert.c in Sources */ = {isa = PBXBuildFile; fileRef = 18F008091E0F3CED002A30B4 /* SDL_test_assert.c */; };
@@ -248,6 +254,15 @@
 		182F00D31E0F421300F2EB37 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		182F00EE1E0F426E00F2EB37 /* SDL_ttf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_ttf.xcodeproj; path = "SDL_iOS/SDL2_ttf-2.0.14/Xcode/SDL_ttf.xcodeproj"; sourceTree = "<group>"; };
 		182F00FA1E0F427E00F2EB37 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "SDL_iOS/SDL2_image-2.0.1/Xcode/SDL_image.xcodeproj"; sourceTree = "<group>"; };
+		183666931E19DECB009B2548 /* test_queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_queue.cpp; sourceTree = "<group>"; };
+		1836669F1E19DF6B009B2548 /* TestModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestModule.cpp; sourceTree = "<group>"; };
+		183666A21E19DF7A009B2548 /* TestModule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TestModule.hpp; sourceTree = "<group>"; };
+		183666A31E1AD31C009B2548 /* test_hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_hash.cpp; sourceTree = "<group>"; };
+		183666A51E1AD418009B2548 /* testing_functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testing_functions.cpp; sourceTree = "<group>"; };
+		183666A61E1AD418009B2548 /* testing_functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = testing_functions.hpp; sourceTree = "<group>"; };
+		18CE96471E1AD72C00FCB988 /* test_hash.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test_hash.hpp; sourceTree = "<group>"; };
+		18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_iter_hash.cpp; sourceTree = "<group>"; };
+		18CE96531E1AD87200FCB988 /* test_iter_hash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = test_iter_hash.hpp; sourceTree = "<group>"; };
 		18F007C01E0F3B08002A30B4 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "SDL_iOS/SDL2-2.0.4/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		18F007D31E0F3CB1002A30B4 /* axis.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = axis.bmp; path = "SDL_iOS/SDL2-2.0.4/test/axis.bmp"; sourceTree = "<group>"; };
 		18F007D41E0F3CB1002A30B4 /* button.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = button.bmp; path = "SDL_iOS/SDL2-2.0.4/test/button.bmp"; sourceTree = "<group>"; };
@@ -512,6 +527,15 @@
 			isa = PBXGroup;
 			children = (
 				182F00AC1E0F40D700F2EB37 /* RandomSquares.cpp */,
+				1836669F1E19DF6B009B2548 /* TestModule.cpp */,
+				183666A21E19DF7A009B2548 /* TestModule.hpp */,
+				183666931E19DECB009B2548 /* test_queue.cpp */,
+				183666A31E1AD31C009B2548 /* test_hash.cpp */,
+				18CE96471E1AD72C00FCB988 /* test_hash.hpp */,
+				18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */,
+				18CE96531E1AD87200FCB988 /* test_iter_hash.hpp */,
+				183666A51E1AD418009B2548 /* testing_functions.cpp */,
+				183666A61E1AD418009B2548 /* testing_functions.hpp */,
 				182F00AD1E0F40D700F2EB37 /* RandomSquares.hpp */,
 			);
 			path = test;
@@ -809,6 +833,9 @@
 				182F00E01E0F424E00F2EB37 /* EventDispatcher.cpp in Sources */,
 				182F00E11E0F424E00F2EB37 /* EventDispatcher.hpp in Sources */,
 				182F00E21E0F424E00F2EB37 /* EventListener.cpp in Sources */,
+				183666A41E1AD31C009B2548 /* test_hash.cpp in Sources */,
+				18CE96541E1AD87200FCB988 /* test_iter_hash.cpp in Sources */,
+				183666A71E1AD418009B2548 /* testing_functions.cpp in Sources */,
 				182F00E31E0F424E00F2EB37 /* EventListener.hpp in Sources */,
 				182F00E41E0F424E00F2EB37 /* GrowArray.cpp in Sources */,
 				182F00E51E0F424E00F2EB37 /* GrowArray.hpp in Sources */,
@@ -819,6 +846,7 @@
 				182F00EA1E0F424E00F2EB37 /* Queue.cpp in Sources */,
 				182F00EB1E0F424E00F2EB37 /* Queue.hpp in Sources */,
 				182F00EC1E0F424E00F2EB37 /* global_init.cpp in Sources */,
+				183666A11E19DF6B009B2548 /* TestModule.cpp in Sources */,
 				182F00ED1E0F424E00F2EB37 /* global_init.hpp in Sources */,
 				182F00BE1E0F416000F2EB37 /* main.cpp in Sources */,
 			);
@@ -854,7 +882,9 @@
 				18F008301E0F3CED002A30B4 /* SDL_test_log.c in Sources */,
 				18F008181E0F3CED002A30B4 /* SDL_test_assert.c in Sources */,
 				18F008391E0F3E75002A30B4 /* testspriteminimal.c in Sources */,
+				183666A01E19DF6B009B2548 /* TestModule.cpp in Sources */,
 				18F008261E0F3CED002A30B4 /* SDL_test_imageBlit.c in Sources */,
+				183666941E19DECB009B2548 /* test_queue.cpp in Sources */,
 				18F008201E0F3CED002A30B4 /* SDL_test_font.c in Sources */,
 				18F008281E0F3CED002A30B4 /* SDL_test_imageBlitBlend.c in Sources */,
 				18F0081A1E0F3CED002A30B4 /* SDL_test_common.c in Sources */,

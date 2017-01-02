@@ -16,6 +16,7 @@
 #include "Core.hpp"
 #include "EventDispatcher.hpp"
 #include "RandomSquares.hpp"
+#include "TestModule.hpp"
 
 int global_init();
 

@@ -12,7 +12,7 @@ Core::Core(){
     renderer = NULL;
     screen_scale = 1.0f;
     next_uid = 0;
-    components = new IterableHashMap<Component *>();
+    components = new IterableHashMap<Component *>(32, NULL);
     printf("New Core! (Should only happen once!)\n");
 }
 

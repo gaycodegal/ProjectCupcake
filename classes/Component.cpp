@@ -8,6 +8,8 @@
 
 #include "Component.hpp"
 
+
+
 Component::Component(long UID, const char * name){
     this->UID = UID;
     unsigned int name_length = std::strlen(name) + 1;

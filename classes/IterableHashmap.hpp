@@ -16,15 +16,15 @@
 template <typename Data>
 class IterableHashMap {
 private:
-    HashMap<int> * map_;
-    GrowArray<Data> * array_;
+    HashMap<Data> * map_;
+    GrowArray<HashEntry<Data> *> * array_;
     Data nill_;
 public:
     
-    IterableHashMap(Data nill = 0) {
+    IterableHashMap(int size = 32, Data nill = 0) {
         nill_ = nill;
-        map_ = new HashMap<int>(32, -1);
-        array_ = new GrowArray<Data>(32);
+        map_ = new HashMap<Data>(32, nill);
+        array_ = new GrowArray<HashEntry<Data> *>(32);
     }
     
     int count(){
@@ -32,27 +32,43 @@ public:
     }
     
     Data get(int i){
-        return array_->get(i);
+        return array_->get(i)->value;
+    }
+    
+    Data remove(const char * key){
+        HashEntry<Data> * entry = map_->remove(key);
+        if(entry == NULL) return nill_;
+        int where = array_->find(entry);
+        if(where == -1) return nill_;
+        array_->remove(where, where + 1);
+        return entry->value;
     }
     
     Data get(const char * key) {
-        int location = map_->get(key);
-        if(location == -1)
-            return nill_;
-        return array_->get(location);
+        return map_->get(key);
     }
     
     void put(const char * key, Data value) {
-        int location = array_->push(value);
-        map_->put(key, location);
+        HashEntry<Data> * entry = map_->remove(key);
+        if(entry != NULL){
+            int where = array_->find(entry);
+            if(where != -1){
+                array_->remove(where, where + 1);
+            }
+        }
+        entry = map_->createEntry(key, value);
+        map_->put(entry, key);
+        array_->push(entry);
     }
     
     void drain(){
-        
+        array_->drain();
+        map_->wipe();
     }
     
     ~IterableHashMap() {
-        
+        delete map_;
+        delete array_;
     }
 };
 

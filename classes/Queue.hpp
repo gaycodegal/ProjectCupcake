@@ -24,22 +24,21 @@ class Queue{
     void grow(int size){
         Data * old_array = array_;
         
-        bool first = true;
-        unsigned int max = end_;
-        if(start_ > end_) max = size_;
+        unsigned int oldsize = size_;
         
         size_ = size;
         array_ = new Data[size_];
-        unsigned int j = 0;
-        for(unsigned int i = start_; i < max; ++i){
-            if(old_array[i] != nill_)
+        int i = start_, j = 0;
+        do{
+            if(array_[i] != nill_){
                 array_[j++] = old_array[i];
-            if(first &&  i == max && start_ > end_){
-                max = end_;
-                i = -1;
-                first = false;
             }
-        }
+            
+            ++i;
+            if(i == oldsize)
+                i = 0;
+        }while(i != end_);
+        
         start_ = rem_ = 0;
         end_ = count_;
         delete [] old_array;
@@ -52,6 +51,7 @@ public:
         rem_ = 0;
         start_ = end_ = 0;
         size_ = size;
+        
         array_ = new Data[size_];
     }
     
@@ -62,7 +62,7 @@ public:
             else
                 grow(size_ << 1);
         }
-        array_[count_] = data;
+        array_[end_] = data;
         ++count_;
         ++end_;
         // more efficient than mod.
@@ -70,25 +70,19 @@ public:
             end_ = 0;
     }
     
-    /**
-     WARNING BROKEN, NEED TO HAVE EMPTY INSTANCE FOR THIS TO WORK.
-     A removed_ INSTEAD OF nill_
-     */
     void remove(Data data){
-        bool first = true;
-        unsigned int max = end_;
-        if(start_ > end_) max = size_;
-        for(unsigned int i = start_; i < max; ++i){
+        int i = start_;
+        do{
             if(array_[i] == data){
                 array_[i] = nill_;
                 break;
             }
-            if(first &&  i == max && start_ > end_){
-                max = end_;
-                i = -1;
-                first = false;
-            }
-        }
+            
+            //more efficient than mod
+            ++i;
+            if(i == size_)
+                i = 0;
+        }while(i != end_);
         ++rem_;
     }
     
@@ -104,7 +98,6 @@ public:
         }
         Data ret = array_[i];
         start_ = i + 1;
-        // more efficient than mod.
         if(start_ == size_)
             start_ = 0;
         return ret;

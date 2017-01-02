@@ -34,6 +34,27 @@ public:
         array_ = new Data[size_];
     }
     
+    void remove(int from, int to){
+        if(from > to)
+            return;
+        for(unsigned int i = to, j = from; i < count_; ++i, ++j){
+            array_[j] = array_[i];
+        }
+        count_ -= to - from;
+    }
+    
+    int find(Data value){
+        for(int i = 0; i < count_; ++i){
+            if(array_[i] == value)
+                return i;
+        }
+        return -1;
+    }
+    
+    void wipe (){
+        count_ = 0;
+    }
+    
     int push(Data data){
         if(count_ == size_)
             grow(size_ << 1);

@@ -14,6 +14,16 @@
 #include "IterableHashmap.hpp"
 #include "Component.hpp"
 
+/**
+ The central piece to our app, mostly a manager.
+ It allows processes to run, and will eventually
+ be made to tell the app when to shut down.
+ 
+ The components attached to it are the main
+ work horses of this app - they are responsible
+ for recieving input, drawing the screen,
+ anything useful at all.
+ */
 class Core{
 private:
     Core();
@@ -54,10 +64,25 @@ public:
      */
     static Core * getInstance();
     
+    /**
+     get one of the components attached to
+     the Core by human - name.
+     */
     Component * getComponent(const char * name){
         return components->get(name);
     }
     
+    /**
+     get one of the components attached to
+     the Core by human - name.
+     */
+    Component * removeComponent(const char * name){
+        return components->remove(name);
+    }
+    
+    /**
+     
+     */
     void putComponent(const char * name, Component * component){
         components->put(name, component);
     }

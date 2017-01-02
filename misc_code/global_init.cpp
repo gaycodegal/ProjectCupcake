@@ -12,6 +12,10 @@
 int global_init(){
     /* this *HAS* to come first - it init's core */
     Core * GameCore = Core::getInstance();
+    
+    //TESTING
+    TestModule::getInstance();
+    
     /* 
      this for instance, inits
      Event Dispatcher, and relies on core.
