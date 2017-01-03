@@ -15,6 +15,9 @@
 
 class EventListener: public Component{
 public:
+    /**
+     get notified that an event has happened.
+     */
     virtual void recieveEvent(const CoreEvent * event){}
 };
 

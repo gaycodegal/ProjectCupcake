@@ -30,7 +30,7 @@ public:
     }
     
     ~HashEntry(){
-        delete [] this->key;
+        delete [] key;
     }
     
     bool keyEquals(unsigned long hash, const char * other) {
@@ -48,7 +48,7 @@ public:
         return true;
     }
     
-    Data getValue() {
+    Data getValue() const{
         return value;
     }
 };
@@ -62,9 +62,14 @@ private:
     int count;
     int nrem;
     Obj nill;
+    /** non conflicting nonsense key representing something was removed */
     HashEntry<Obj> * rem;
     HashEntry<Obj> **table;
     
+    /**
+     creates a new table and inserts everything held into that of
+     a specified size.
+     */
     void expand(int newsize){
         HashEntry<Obj> **oldTable = table;
         int oldSize = size;
@@ -81,11 +86,12 @@ private:
             }
         }
         delete[] oldTable;
-        
-        
     }
 public:
-    //
+    
+    /**
+     creates a hashmap with c_str keys
+     */
     HashMap(int size = 32, Obj nill = 0) {
         this->nill = nill;
         this->rem = new HashEntry<Obj>("", stringHash("") + 1, nill); // will never match because hash is hash("") + 1
@@ -96,7 +102,18 @@ public:
             table[i] = NULL;
     }
     
-    HashEntry<Obj> * remove(const char * key){
+    /**
+     remove the thing at the key provided.
+     */
+    void remove(const char * key){
+        delete this->removeEntry(key);
+    }
+    
+    /**
+     remove the entry at key provided.
+     note you'll need to delete the entry returned
+     */
+    HashEntry<Obj> * removeEntry(const char * key){
         //technically not needed, but why not
         if(nrem + count >= (float)this->size * 0.7f){
             if(nrem > (float)this->size * 0.2f)
@@ -125,7 +142,10 @@ public:
         }
     }
     
-    Obj get(const char * key) {
+    /**
+     get the object stored at a key
+     */
+    Obj get(const char * key) const{
         if(key == NULL)
             return nill;
         unsigned long rhash = stringHash(key);
@@ -138,10 +158,17 @@ public:
             return table[hash]->getValue();
     }
     
+    /**
+     put an object at a key.
+     returns whether the object already existed
+     */
     bool put(const char * key, Obj value) {
         return put(createEntry(key, value), key);
     }
     
+    /**
+     create an entry for insertion into the table
+     */
     HashEntry<Obj> *  createEntry(const char * key, Obj value) {
         if(nrem + count >= (float)this->size * 0.7f){
             if(nrem > (float)this->size * 0.2f)
@@ -153,6 +180,9 @@ public:
         return new HashEntry<Obj>(key, rhash, value);
     }
     
+    /**
+     puts an entry into the table at a key.
+     */
     bool put(HashEntry<Obj> * entry, const char * key) {
         int was_extant = -1;
         
@@ -200,6 +230,9 @@ public:
         return was_extant == 1;
     }
     
+    /**
+     deletes everything in the table and wipes it
+     */
     void drain(){
         nrem = count = 0;
         for (int i = 0; i < size; ++i){
@@ -211,7 +244,11 @@ public:
         }
     }
     
+    /**
+     wipes the table
+     */
     void wipe(){
+        nrem = count = 0;
         for (int i = 0; i < size; ++i){
             if (table[i] != NULL && table[i] != rem)
                 delete table[i];
@@ -219,6 +256,9 @@ public:
         }
     }
     
+    /**
+     deletes the table
+     */
     ~HashMap() {
         for (int i = 0; i < size; ++i)
             if (table[i] != NULL && table[i] != rem)

@@ -21,6 +21,7 @@ void TestModule::run(){
     
     if(core->removeComponent("TestModule") == NULL)
         printf("FAILED To REMOVE TestModule!\n");
+    
     printf("^^^ If nothing appears above, all tests passed!\n");
     
     //anytime we remove a component we're no longer using make sure it is deleted.

@@ -25,6 +25,33 @@ Core * Core::getInstance(){
     return GameCore;
 }
 
+Component * Core::getComponent(const char * name){
+    return components->get(name);
+}
+
+Component * Core::removeComponent(const char * name){
+    return components->remove(name);
+}
+
+void Core::putComponent(const char * name, Component * component){
+    components->put(name, component);
+}
+
+bool Core::iterate(){
+    int length = components->count();
+    for(int i = 0; i < length; ++i){
+        Component * c = components->get(i);
+        if(c->should_run())
+            c->run();
+    }
+    
+    /* update screen, allow new events to appear */
+    SDL_RenderPresent(renderer);
+    SDL_Delay(100);
+    return true;
+}
+
 long Core::nextUID(){
     return next_uid++;
 }
+

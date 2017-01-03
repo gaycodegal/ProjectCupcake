@@ -21,6 +21,11 @@ class Queue{
     unsigned int rem_;
     Data * array_;
     
+    
+    /**
+     make the array capable of storing
+     a new maximum amount of things
+     */
     void grow(int size){
         Data * old_array = array_;
         
@@ -45,6 +50,9 @@ class Queue{
     }
     
 public:
+    /**
+     basic queue, push & poll
+     */
     Queue(int size = 32, Data nill = 0){
         nill_ = nill;
         count_ = 0;
@@ -55,6 +63,9 @@ public:
         array_ = new Data[size_];
     }
     
+    /**
+     add something to the queue
+     */
     void push(Data data){
         if(rem_ + count_ == size_){
             if (rem_ >= (count_ >> 1))
@@ -70,6 +81,10 @@ public:
             end_ = 0;
     }
     
+    /**
+     remove an instance of something from the queue
+     before it is polled out
+     */
     void remove(Data data){
         int i = start_;
         do{
@@ -86,6 +101,9 @@ public:
         ++rem_;
     }
     
+    /**
+     remove the next thing from the queue.
+     */
     Data poll(){
         if(count_ == 0)
             return nill_;
@@ -103,6 +121,9 @@ public:
         return ret;
     }
     
+    /**
+     check the next thing that will come out of the queue
+     */
     Data peek() const{
         if(count_ == 0)
             return nill_;
@@ -144,7 +165,7 @@ public:
     }
     
     /**
-     
+     get the number of things in the queue
      */
     int count() const{
         return count_;

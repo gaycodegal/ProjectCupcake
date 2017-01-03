@@ -13,10 +13,16 @@
 
 template <typename Data>
 class GrowArray{
+    /** the maximum size of the array before it must expand */
     unsigned int size_;
+    /** the current amount of things in the array */
     unsigned int count_;
+    /** stores the things */
     Data * array_;
     
+    /** 
+     expand the current max size
+     */
     void grow(int size){
         Data * old_array = array_;
         size_ = size;
@@ -28,12 +34,26 @@ class GrowArray{
     }
     
 public:
+    /**
+     an array that grows by powers of two
+     when it exceeds it capacity.
+     
+     mostly used for pushing things in
+     and then accessing them by index.
+     
+     items will always be in the first
+     count_ slots of the array_
+     */
     GrowArray(int size = 32){
         count_ = 0;
         size_ = size;
         array_ = new Data[size_];
     }
     
+    /**
+     removes a section of the array and shifts
+     everything else over to fill up the space
+     */
     void remove(int from, int to){
         if(from > to)
             return;
@@ -43,7 +63,11 @@ public:
         count_ -= to - from;
     }
     
-    int find(Data value){
+    /**
+     finds the index of something in the array
+     return index or -1 if not found
+     */
+    int find(Data value) const{
         for(int i = 0; i < count_; ++i){
             if(array_[i] == value)
                 return i;
@@ -51,10 +75,16 @@ public:
         return -1;
     }
     
+    /**
+     wipes the array clean
+     */
     void wipe (){
         count_ = 0;
     }
     
+    /**
+     put something at the end of the array.
+     */
     int push(Data data){
         if(count_ == size_)
             grow(size_ << 1);
@@ -62,10 +92,18 @@ public:
         return count_++;
     }
     
-    Data get(int i){
+    /**
+     get something at index i of the array.
+     assumes it's a valid index
+     */
+    Data get(int i) const{
         return array_[i];
     }
     
+    /**
+     wipes the array clean
+     and also deletes everything in the array
+     */
     void drain(){
         for(unsigned int i = 0; i < count_; ++i){
             delete array_[i];
@@ -73,7 +111,10 @@ public:
         count_ = 0;
     }
     
-    int count(){
+    /**
+     get the number of things in the array
+     */
+    int count() const{
         return count_;
     }
 };

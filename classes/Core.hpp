@@ -27,7 +27,9 @@
 class Core{
 private:
     Core();
+    /** the next uid so that we can assign only unique ids */
     long next_uid;
+    /** the map of components so that we can search them as nesc */
     IterableHashMap<Component *> * components;
 public:
     
@@ -68,39 +70,31 @@ public:
      get one of the components attached to
      the Core by human - name.
      */
-    Component * getComponent(const char * name){
-        return components->get(name);
-    }
+    Component * getComponent(const char * name);
     
     /**
      remove one of the components attached to
      the Core by human - name.
      */
-    Component * removeComponent(const char * name){
-        return components->remove(name);
-    }
+    Component * removeComponent(const char * name);
     
     /**
-     
+     place a component in the hashmap
      */
-    void putComponent(const char * name, Component * component){
-        components->put(name, component);
-    }
+    void putComponent(const char * name, Component * component);
     
-    bool iterate(){
-        int length = components->count();
-        for(int i = 0; i < length; ++i){
-            Component * c = components->get(i);
-            if(c->should_run())
-                c->run();
-        }
-        
-        /* update screen, allow new events to appear */
-        SDL_RenderPresent(renderer);
-        SDL_Delay(100);
-        return true;
-    }
+    /**
+     go through all the components,
+     run them if nesc,
+     then present the renderer (makes sure
+     that we recieve events and actually show
+     users what we drew)
+     */
+    bool iterate();
     
+    /**
+     get the next unique id.
+     */
     long nextUID();
     
     /**

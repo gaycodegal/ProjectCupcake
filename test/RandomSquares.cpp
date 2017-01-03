@@ -8,11 +8,19 @@
 
 #include "RandomSquares.hpp"
 
+/**
+ returns a random number in
+ a range. rand() % x is not that good
+ of a random, but it's fine for this.
+ */
 int randomInt(int min, int max)
 {
     return min + rand() % (max - min + 1);
 }
 
+/**
+ draws some random squares onto the renderer provided
+ */
 void render(SDL_Renderer *renderer, Core * core)
 {
     SDL_Rect screen_rect = core->screen_rect;

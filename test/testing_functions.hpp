@@ -11,6 +11,10 @@
 
 #include <stdio.h>
 
+/**
+ assert that two things are equal =
+ if they are != present message
+ */
 template <typename Data>
 void assertEq(Data a, Data b, const char * mess = ""){
     if (a != b)

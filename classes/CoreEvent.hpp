@@ -13,14 +13,23 @@
 #include <cstring>
 class CoreEvent{
 public:
+    /** when the event was recieved or created */
     long timestamp;
+    /** the event name */
     char * name;
+    /** the thing that sent this */
     void * sender;
+    
+    /** 
+     Any event or message that needs to be sent
+     */
     CoreEvent(long timestamp, const char * name):timestamp(timestamp){
         unsigned int name_length = std::strlen(name) + 1;
         this->name = new char[name_length];
         std::memcpy(this->name, name, name_length);
     }
+    
+    /***/
     virtual ~CoreEvent(){
         delete [] name;
     };
