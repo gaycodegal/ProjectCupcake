@@ -9,8 +9,7 @@
 
 #ifndef cpp_test_queue
 #define cpp_test_queue
-#include <stdio.h>
-#include "Queue.hpp"
+#include "test_queue.hpp"
 
 int test_queue(){
     Queue<int> * temp = new Queue<int>(8,-1);

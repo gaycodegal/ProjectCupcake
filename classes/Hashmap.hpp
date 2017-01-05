@@ -59,7 +59,7 @@ template <typename Obj>
 class HashMap {
 private:
     int size;
-    int count;
+    int count_;
     int nrem;
     Obj nill;
     /** non conflicting nonsense key representing something was removed */
@@ -78,7 +78,7 @@ private:
         for (int i = 0; i < size; i++)
             table[i] = NULL;
         
-        nrem = count = 0;
+        nrem = count_ = 0;
         for (int i = 0; i < oldSize; i++){
             if (oldTable[i] != NULL && oldTable[i] != rem){
                 put(oldTable[i]->key, oldTable[i]->value);
@@ -96,7 +96,7 @@ public:
         this->nill = nill;
         this->rem = new HashEntry<Obj>("", stringHash("") + 1, nill); // will never match because hash is hash("") + 1
         this->size = size;
-        nrem = count = 0;
+        nrem = count_ = 0;
         table = new HashEntry<Obj>*[size];
         for (int i = 0; i < size; i++)
             table[i] = NULL;
@@ -115,7 +115,7 @@ public:
      */
     HashEntry<Obj> * removeEntry(const char * key){
         //technically not needed, but why not
-        if(nrem + count >= (float)this->size * 0.7f){
+        if(nrem + count_ >= (float)this->size * 0.7f){
             if(nrem > (float)this->size * 0.2f)
                 this->expand(this->size);
             else
@@ -137,9 +137,34 @@ public:
             HashEntry<Obj> * ret = table[hash];
             table[hash] = rem;
             ++nrem;
-            --count;
+            --count_;
             return ret;
         }
+    }
+    
+    /**
+     get the first thing after an index in the table.
+     useful for unstable iteration
+     */
+    Obj getAfter(int & i, char * &key){
+        for(int j = i; j < size; ++j){
+            HashEntry<Obj> * e = table[j];
+            if(e != NULL && e != rem){
+                i = j;
+                key = e->key;
+                return e->value;
+            }
+        }
+        i = -1;
+        key = NULL;
+        return NULL;
+    }
+    
+    /**
+     returns the number of things in the 
+     */
+    int count(){
+        return count_;
     }
     
     /**
@@ -170,7 +195,7 @@ public:
      create an entry for insertion into the table
      */
     HashEntry<Obj> *  createEntry(const char * key, Obj value) {
-        if(nrem + count >= (float)this->size * 0.7f){
+        if(nrem + count_ >= (float)this->size * 0.7f){
             if(nrem > (float)this->size * 0.2f)
                 this->expand(this->size);
             else
@@ -216,7 +241,7 @@ public:
             if(was_extant == -1)
                 was_extant = 0;
             table[hash] = entry;
-            count++;
+            count_++;
             
             //doesn't require size checking, as there will be room
             if(tomove != NULL){
@@ -234,7 +259,7 @@ public:
      deletes everything in the table and wipes it
      */
     void drain(){
-        nrem = count = 0;
+        nrem = count_ = 0;
         for (int i = 0; i < size; ++i){
             if (table[i] != NULL && table[i] != rem){
                 delete table[i]->value;
@@ -248,7 +273,7 @@ public:
      wipes the table
      */
     void wipe(){
-        nrem = count = 0;
+        nrem = count_ = 0;
         for (int i = 0; i < size; ++i){
             if (table[i] != NULL && table[i] != rem)
                 delete table[i];

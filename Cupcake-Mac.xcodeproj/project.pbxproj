@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		182CD72A1E1C5EE5008D9FD1 /* BSONObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD7281E1C5EE5008D9FD1 /* BSONObject.cpp */; };
+		182CD72B1E1C5EE5008D9FD1 /* BSONObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 182CD7291E1C5EE5008D9FD1 /* BSONObject.hpp */; };
+		182CD72E1E1C768E008D9FD1 /* CharArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD72C1E1C768E008D9FD1 /* CharArray.cpp */; };
+		182CD72F1E1C768E008D9FD1 /* CharArray.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 182CD72D1E1C768E008D9FD1 /* CharArray.hpp */; };
 		182F00BE1E0F416000F2EB37 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00BD1E0F416000F2EB37 /* main.cpp */; };
 		182F00C41E0F41DC00F2EB37 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F00C31E0F41DC00F2EB37 /* CoreVideo.framework */; };
 		182F00C61E0F41E200F2EB37 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F00C51E0F41E200F2EB37 /* AudioToolbox.framework */; };
@@ -61,6 +65,25 @@
 		183666A11E19DF6B009B2548 /* TestModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1836669F1E19DF6B009B2548 /* TestModule.cpp */; };
 		183666A41E1AD31C009B2548 /* test_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A31E1AD31C009B2548 /* test_hash.cpp */; };
 		183666A71E1AD418009B2548 /* testing_functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A51E1AD418009B2548 /* testing_functions.cpp */; };
+		1898C3CF1E1DD44B0093CEC4 /* test_bson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3CD1E1DD44B0093CEC4 /* test_bson.cpp */; };
+		1898C3D01E1DD44B0093CEC4 /* test_bson.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1898C3CE1E1DD44B0093CEC4 /* test_bson.hpp */; };
+		1898C3E01E1DF5590093CEC4 /* FileEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3DE1E1DF5590093CEC4 /* FileEditor.cpp */; };
+		1898C3E11E1DF5590093CEC4 /* FileEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1898C3DF1E1DF5590093CEC4 /* FileEditor.h */; };
+		1898C3E51E1DF7350093CEC4 /* resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1898C3E41E1DF71D0093CEC4 /* resources */; };
+		1898C3E61E1DF7DE0093CEC4 /* TestModule.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A21E19DF7A009B2548 /* TestModule.hpp */; };
+		1898C3E71E1DF7DE0093CEC4 /* test_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666931E19DECB009B2548 /* test_queue.cpp */; };
+		1898C3E81E1DF7DE0093CEC4 /* test_hash.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96471E1AD72C00FCB988 /* test_hash.hpp */; };
+		1898C3E91E1DF7DE0093CEC4 /* test_iter_hash.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96531E1AD87200FCB988 /* test_iter_hash.hpp */; };
+		1898C3EA1E1DF7DE0093CEC4 /* testing_functions.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A61E1AD418009B2548 /* testing_functions.hpp */; };
+		1898C3EB1E1DF7DE0093CEC4 /* test_bson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3CD1E1DD44B0093CEC4 /* test_bson.cpp */; };
+		1898C3EC1E1DF7DE0093CEC4 /* test_bson.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3CE1E1DD44B0093CEC4 /* test_bson.hpp */; };
+		1898C3ED1E1DF7E30093CEC4 /* CharArray.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD72D1E1C768E008D9FD1 /* CharArray.hpp */; };
+		1898C3EE1E1DF7E30093CEC4 /* CharArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD72C1E1C768E008D9FD1 /* CharArray.cpp */; };
+		1898C3EF1E1DF7E80093CEC4 /* FileEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3DE1E1DF5590093CEC4 /* FileEditor.cpp */; };
+		1898C3F01E1DF7E80093CEC4 /* FileEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3DF1E1DF5590093CEC4 /* FileEditor.h */; };
+		1898C3F11E1DF7E80093CEC4 /* BSONObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD7281E1C5EE5008D9FD1 /* BSONObject.cpp */; };
+		1898C3F21E1DF7E80093CEC4 /* BSONObject.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD7291E1C5EE5008D9FD1 /* BSONObject.hpp */; };
+		1898C3F41E1EB75E0093CEC4 /* test_queue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1898C3F31E1EB75E0093CEC4 /* test_queue.hpp */; };
 		18CE96541E1AD87200FCB988 /* test_iter_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */; };
 		18F007CF1E0F3B40002A30B4 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F007CA1E0F3B09002A30B4 /* libSDL2.a */; };
 		18F008181E0F3CED002A30B4 /* SDL_test_assert.c in Sources */ = {isa = PBXBuildFile; fileRef = 18F008091E0F3CED002A30B4 /* SDL_test_assert.c */; };
@@ -191,12 +214,13 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		182F00B01E0F411300F2EB37 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				1898C3E51E1DF7350093CEC4 /* resources in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DB166ECE16A1D85400A1396C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -219,6 +243,10 @@
 		002A871410730623007319AE /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
 		002A873910730675007319AE /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		002F33A709CA188600EBEB88 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		182CD7281E1C5EE5008D9FD1 /* BSONObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BSONObject.cpp; sourceTree = "<group>"; };
+		182CD7291E1C5EE5008D9FD1 /* BSONObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BSONObject.hpp; sourceTree = "<group>"; };
+		182CD72C1E1C768E008D9FD1 /* CharArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharArray.cpp; sourceTree = "<group>"; };
+		182CD72D1E1C768E008D9FD1 /* CharArray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharArray.hpp; sourceTree = "<group>"; };
 		182F00961E0F40C300F2EB37 /* global_init.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = global_init.cpp; sourceTree = "<group>"; };
 		182F00971E0F40C300F2EB37 /* global_init.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = global_init.hpp; sourceTree = "<group>"; };
 		182F00991E0F40CB00F2EB37 /* Component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
@@ -260,6 +288,12 @@
 		183666A31E1AD31C009B2548 /* test_hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_hash.cpp; sourceTree = "<group>"; };
 		183666A51E1AD418009B2548 /* testing_functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testing_functions.cpp; sourceTree = "<group>"; };
 		183666A61E1AD418009B2548 /* testing_functions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = testing_functions.hpp; sourceTree = "<group>"; };
+		1898C3CD1E1DD44B0093CEC4 /* test_bson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_bson.cpp; sourceTree = "<group>"; };
+		1898C3CE1E1DD44B0093CEC4 /* test_bson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = test_bson.hpp; sourceTree = "<group>"; };
+		1898C3DE1E1DF5590093CEC4 /* FileEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileEditor.cpp; sourceTree = "<group>"; };
+		1898C3DF1E1DF5590093CEC4 /* FileEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileEditor.h; sourceTree = "<group>"; };
+		1898C3E41E1DF71D0093CEC4 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
+		1898C3F31E1EB75E0093CEC4 /* test_queue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = test_queue.hpp; sourceTree = "<group>"; };
 		18CE96471E1AD72C00FCB988 /* test_hash.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = test_hash.hpp; sourceTree = "<group>"; };
 		18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_iter_hash.cpp; sourceTree = "<group>"; };
 		18CE96531E1AD87200FCB988 /* test_iter_hash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = test_iter_hash.hpp; sourceTree = "<group>"; };
@@ -481,6 +515,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1898C3E41E1DF71D0093CEC4 /* resources */,
 				182F00AB1E0F40D700F2EB37 /* test */,
 				182F00981E0F40CB00F2EB37 /* classes */,
 				182F00951E0F40C300F2EB37 /* misc_code */,
@@ -494,6 +529,10 @@
 			children = (
 				182F00961E0F40C300F2EB37 /* global_init.cpp */,
 				182F00971E0F40C300F2EB37 /* global_init.hpp */,
+				1898C3DE1E1DF5590093CEC4 /* FileEditor.cpp */,
+				1898C3DF1E1DF5590093CEC4 /* FileEditor.h */,
+				182CD7281E1C5EE5008D9FD1 /* BSONObject.cpp */,
+				182CD7291E1C5EE5008D9FD1 /* BSONObject.hpp */,
 			);
 			path = misc_code;
 			sourceTree = "<group>";
@@ -501,6 +540,8 @@
 		182F00981E0F40CB00F2EB37 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				182CD72D1E1C768E008D9FD1 /* CharArray.hpp */,
+				182CD72C1E1C768E008D9FD1 /* CharArray.cpp */,
 				182F00991E0F40CB00F2EB37 /* Component.cpp */,
 				182F009A1E0F40CB00F2EB37 /* Component.hpp */,
 				182F009B1E0F40CB00F2EB37 /* Core.cpp */,
@@ -531,11 +572,14 @@
 				183666A21E19DF7A009B2548 /* TestModule.hpp */,
 				183666931E19DECB009B2548 /* test_queue.cpp */,
 				183666A31E1AD31C009B2548 /* test_hash.cpp */,
+				1898C3F31E1EB75E0093CEC4 /* test_queue.hpp */,
 				18CE96471E1AD72C00FCB988 /* test_hash.hpp */,
 				18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */,
 				18CE96531E1AD87200FCB988 /* test_iter_hash.hpp */,
 				183666A51E1AD418009B2548 /* testing_functions.cpp */,
 				183666A61E1AD418009B2548 /* testing_functions.hpp */,
+				1898C3CD1E1DD44B0093CEC4 /* test_bson.cpp */,
+				1898C3CE1E1DD44B0093CEC4 /* test_bson.hpp */,
 				182F00AD1E0F40D700F2EB37 /* RandomSquares.hpp */,
 			);
 			path = test;
@@ -635,6 +679,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182CD72F1E1C768E008D9FD1 /* CharArray.hpp in Headers */,
+				1898C3E11E1DF5590093CEC4 /* FileEditor.h in Headers */,
+				182CD72B1E1C5EE5008D9FD1 /* BSONObject.hpp in Headers */,
+				1898C3F41E1EB75E0093CEC4 /* test_queue.hpp in Headers */,
+				1898C3D01E1DD44B0093CEC4 /* test_bson.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,6 +871,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1898C3EF1E1DF7E80093CEC4 /* FileEditor.cpp in Sources */,
+				1898C3F01E1DF7E80093CEC4 /* FileEditor.h in Sources */,
+				1898C3F11E1DF7E80093CEC4 /* BSONObject.cpp in Sources */,
+				1898C3F21E1DF7E80093CEC4 /* BSONObject.hpp in Sources */,
+				1898C3ED1E1DF7E30093CEC4 /* CharArray.hpp in Sources */,
+				1898C3EE1E1DF7E30093CEC4 /* CharArray.cpp in Sources */,
+				1898C3E61E1DF7DE0093CEC4 /* TestModule.hpp in Sources */,
+				1898C3E71E1DF7DE0093CEC4 /* test_queue.cpp in Sources */,
+				1898C3E81E1DF7DE0093CEC4 /* test_hash.hpp in Sources */,
+				1898C3E91E1DF7DE0093CEC4 /* test_iter_hash.hpp in Sources */,
+				1898C3EA1E1DF7DE0093CEC4 /* testing_functions.hpp in Sources */,
+				1898C3EB1E1DF7DE0093CEC4 /* test_bson.cpp in Sources */,
+				1898C3EC1E1DF7DE0093CEC4 /* test_bson.hpp in Sources */,
 				182F00D81E0F424E00F2EB37 /* RandomSquares.cpp in Sources */,
 				182F00D91E0F424E00F2EB37 /* RandomSquares.hpp in Sources */,
 				182F00DA1E0F424E00F2EB37 /* Component.cpp in Sources */,
@@ -881,13 +943,17 @@
 			files = (
 				18F008301E0F3CED002A30B4 /* SDL_test_log.c in Sources */,
 				18F008181E0F3CED002A30B4 /* SDL_test_assert.c in Sources */,
+				1898C3CF1E1DD44B0093CEC4 /* test_bson.cpp in Sources */,
+				182CD72A1E1C5EE5008D9FD1 /* BSONObject.cpp in Sources */,
 				18F008391E0F3E75002A30B4 /* testspriteminimal.c in Sources */,
 				183666A01E19DF6B009B2548 /* TestModule.cpp in Sources */,
 				18F008261E0F3CED002A30B4 /* SDL_test_imageBlit.c in Sources */,
 				183666941E19DECB009B2548 /* test_queue.cpp in Sources */,
+				182CD72E1E1C768E008D9FD1 /* CharArray.cpp in Sources */,
 				18F008201E0F3CED002A30B4 /* SDL_test_font.c in Sources */,
 				18F008281E0F3CED002A30B4 /* SDL_test_imageBlitBlend.c in Sources */,
 				18F0081A1E0F3CED002A30B4 /* SDL_test_common.c in Sources */,
+				1898C3E01E1DF5590093CEC4 /* FileEditor.cpp in Sources */,
 				18F0082C1E0F3CED002A30B4 /* SDL_test_imagePrimitives.c in Sources */,
 				18F0082A1E0F3CED002A30B4 /* SDL_test_imageFace.c in Sources */,
 				18F0082E1E0F3CED002A30B4 /* SDL_test_imagePrimitivesBlend.c in Sources */,

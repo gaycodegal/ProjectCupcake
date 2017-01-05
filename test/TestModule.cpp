@@ -7,9 +7,10 @@
 //
 
 #include "TestModule.hpp"
-#include "test_queue.cpp"
+#include "test_queue.hpp"
 #include "test_hash.hpp"
 #include "test_iter_hash.hpp"
+#include "test_bson.hpp"
 
 
 void TestModule::run(){
@@ -17,6 +18,7 @@ void TestModule::run(){
     test_queue();
     test_hash();
     test_iter_hash();
+    test_bson();
     Core * core = Core::getInstance();
     
     if(core->removeComponent("TestModule") == NULL)
