@@ -86,6 +86,22 @@ Uint8 CharArray::getUint8(){
     return (buffer[readHead++] & 0xFF);
 }
 
+void CharArray::writeUint32(uint32_t n){
+    buffer[readHead++] = 0xFF & (n >> 24);
+    buffer[readHead++] = 0xFF & (n >> 16);
+    buffer[readHead++] = 0xFF & (n >> 8);
+    buffer[readHead++] = 0xFF & (n);
+}
+
+void CharArray::writeUint16(uint16_t n){
+    buffer[readHead++] = 0xFF & (n >> 8);
+    buffer[readHead++] = 0xFF & (n);
+}
+
+void CharArray::writeUint8(uint8_t n){
+    buffer[readHead++] = 0xFF & (n);
+}
+
 float CharArray::getFloat(){
     uint32_t ui = ((buffer[readHead] & 0xFF) << 24) |
     ((buffer[readHead + 1] & 0xFF) << 16) |
@@ -95,6 +111,15 @@ float CharArray::getFloat(){
     float f;
     memcpy(&f, &ui, 4);
     return f;
+}
+
+void CharArray::writeFloat(float f){
+    uint32_t n;
+    memcpy(&n, &f, 4);
+    buffer[readHead++] = 0xFF & (n >> 24);
+    buffer[readHead++] = 0xFF & (n >> 16);
+    buffer[readHead++] = 0xFF & (n >> 8);
+    buffer[readHead++] = 0xFF & (n);
 }
 
 int32_t CharArray::getInt32(){
@@ -115,6 +140,31 @@ int16_t CharArray::getInt16(){
 
 int8_t CharArray::getInt8(){
     return (buffer[readHead++] & 0xFF);
+}
+
+void CharArray::writeInt32(int32_t n){
+    buffer[readHead++] = 0xFF & (n >> 24);
+    buffer[readHead++] = 0xFF & (n >> 16);
+    buffer[readHead++] = 0xFF & (n >> 8);
+    buffer[readHead++] = 0xFF & (n);
+}
+
+void CharArray::writeInt16(int16_t n){
+    buffer[readHead++] = 0xFF & (n >> 8);
+    buffer[readHead++] = 0xFF & (n);
+}
+
+void CharArray::writeInt8(int8_t n){
+    buffer[readHead++] = 0xFF & (n);
+}
+
+void CharArray::writeString(const std::string * s, bool nullTerm){
+    const char * cstr = s->c_str();
+    for(int i = 0, l = (int)s->length(); i < l; ++ i){
+        buffer[readHead++] = 0xFF & cstr[i];
+    }
+    if(nullTerm)
+        buffer[readHead++] = 0;
 }
 
 

@@ -9,33 +9,62 @@
 #include "BSONObject.hpp"
 
 
-
+/**
+ 
+ */
 BSONvalue::BSONvalue(){
-        type = 2;
-        data._int = 0;
+    type = 2;
+    data._int = 0;
+}
+
+BSONvalue::BSONvalue(int32_t number){
+    type = 10;
+    data._int = number;
+}
+
+BSONvalue::BSONvalue(uint32_t number){
+    type = 7;
+    data._int = number;
+}
+
+/**
+ 
+ */
+BSONvalue::BSONvalue(int type, BSONdata data):type(type),data(data){
+    
+}
+
+void BSONvalue::changeTo(int type, BSONdata data, bool doDelete){
+    if(doDelete && this->type >= 16){
+        deleteData();
     }
-    BSONvalue::BSONvalue(int type, BSONdata data):type(type),data(data){
-        
-    }
-    void BSONvalue::changeTo(int type, BSONdata data, bool doDelete){
-        if(doDelete && this->type >= 16){
-            if(this->type == 18)
-                delete data._array;
-            else if(this->type == 32)
-                delete data._object;
+    this->type =type;
+    this->data = data;
+}
+
+void BSONvalue::deleteData(){
+    if(this->type == 18){
+        GrowArray<BSONvalue *> * array = data._array;
+        for(int i = 0, m = array->count(); i < m; ++i){
+            array->get(i)->deleteData();
         }
-        this->type =type;
-        this->data = data;
+        array->drain();
+        delete array;
+    }else if(this->type == 32){
+        HashMap<BSONvalue *> * object = data._object;
+        int at = 0;
+        char * key;
+        for(int i = 0, m = object->count(); i < m; ++i){
+            object->getAfter(at, key)->deleteData();
+        }
+        object->drain();
+        delete object;
     }
-    void BSONvalue::deleteData(){
-        if(this->type == 18)
-            delete data._array;
-        else if(this->type == 32)
-            delete data._object;
-    }
-    BSONvalue::~BSONvalue(){
-        
-    }
+}
+
+BSONvalue::~BSONvalue(){
+    
+}
 
 
 void asPretty(BSONvalue * val, std::stringstream & stream);
@@ -108,14 +137,13 @@ void asPretty(BSONvalue * val, std::stringstream & stream){
                 ++at;
                 stream << '"' << key << "\": ";
                 asPretty(v, stream);
-                if(i != m)
-                    stream << ",\n";
+                if(i + 1 != m)
+                    stream << ',';
             }
             stream << "}";
             return;
         }
     }
-    
 }
 
 BSONvalue * parseBSON(CharArray * array){
@@ -135,18 +163,22 @@ BSONvalue * parseBSON(CharArray * array){
             m->data._int = 0;
             return m; // false
         case 5:
-            m->data._uint = array->getUint8();
+            m->type = 10;
+            m->data._int = array->getUint8();
             return m;
         case 6:
+            m->type = 10;
             m->data._uint = array->getUint16();
             return m;
         case 7:
             m->data._uint = array->getUint32();
             return m;
         case 8:
+            m->type = 10;
             m->data._int = array->getInt8();
             return m;
         case 9:
+            m->type = 10;
             m->data._int = array->getInt16();
             return m;
         case 10:
@@ -196,4 +228,178 @@ BSONvalue * parseBSON(CharArray * array){
             
     }
     return NULL;
+}
+
+int formattedBSONLength(BSONvalue * value){
+    int r = 1; // type
+    switch (value->type) {
+        case 1:
+            return r; //NULL
+        case 2:
+            return r; // undefined
+        case 3:
+            return r; // true
+        case 4:
+            return r; // false
+        case 5:
+            return r + 1; // uint8
+        case 6:
+            return r + 2; // uint16
+        case 7:
+            return r + 4; // uint32
+        case 8:
+            return r + 1; // int8
+        case 9:
+            return r + 2; // int16
+        case 10:
+            return r + 4; // int32
+        case 11:
+            return r + 4; // float
+        case 12:
+            return r; //not a thing yet;
+        case 16:
+        {
+            std::string * s = value->data._string;
+            int len = (int)s->length();
+            BSONvalue * temp = new BSONvalue(len);
+            r += formattedBSONLength(temp);
+            delete temp;
+            r += len;
+            return r;
+        }
+        case 18:
+        {
+            GrowArray<BSONvalue *> * array = value->data._array;
+            BSONdata data;
+            int len = array->count();
+            data._int = len;
+            BSONvalue * temp = new BSONvalue(len);
+            r += formattedBSONLength(temp);
+            delete temp;
+            
+            for (int i = 0; i < len; ++i) {
+                r += formattedBSONLength(array->get(i));
+            }
+            return r;
+        }
+        case 32:
+        {
+            
+            HashMap<BSONvalue *> * object = value->data._object;
+            BSONdata data;
+            int len = object->count();
+            data._int = len;
+            BSONvalue * temp = new BSONvalue(len);
+            r += formattedBSONLength(temp);
+            
+            int at = 0;
+            char * key;
+            std::string * tempstr;
+            BSONvalue * v;
+            for(int i = 0, m = object->count(); i < m; ++i){
+                v = object->getAfter(at, key);
+                ++at;
+                tempstr = new std::string(key);
+                data._string = tempstr;
+                temp->changeTo(16, data, true);
+                r += formattedBSONLength(temp);
+                r += formattedBSONLength(v);
+                delete tempstr;
+            }
+            temp->deleteData();
+            delete temp;
+            return r;
+        }
+            
+    }
+    return NULL;
+}
+
+
+void formattedBSON(BSONvalue * value, CharArray * array){
+    array->writeUint8(value->type);
+    switch (value->type) {
+        case 1:
+            return; //NULL
+        case 2:
+            return; // undefined
+        case 3:
+            return; // true
+        case 4:
+            return; // false
+        case 5:
+            array->writeUint8(value->data._uint);
+            return; // uint8
+        case 6:
+            array->writeUint16(value->data._uint);
+            return; // uint16
+        case 7:
+            array->writeUint32(value->data._uint);
+            return; // uint32
+        case 8:
+            array->writeInt8(value->data._int);
+            return; // int8
+        case 9:
+            array->writeInt16(value->data._int);
+            return; // int16
+        case 10:
+            array->writeInt32(value->data._int);
+            return; // int32
+        case 11:
+            array->writeFloat(value->data._float);
+            return; // float
+        case 12:
+            return; //not a thing yet;
+        case 16:
+        {
+            std::string * s = value->data._string;
+            BSONvalue * temp = new BSONvalue((int)s->length());
+            formattedBSON(temp, array);
+            delete temp;
+            array->writeString(s);
+            return;
+        }
+        case 18:
+        {
+            GrowArray<BSONvalue *> * ary = value->data._array;
+            int len = ary->count();
+            BSONvalue * temp = new BSONvalue(len);
+            formattedBSON(temp, array);
+            delete temp;
+            
+            for (int i = 0; i < len; ++i) {
+                formattedBSON(ary->get(i), array);
+            }
+            return;
+        }
+        case 32:
+        {
+            
+            HashMap<BSONvalue *> * object = value->data._object;
+            BSONdata data;
+            int len = object->count();
+            BSONvalue * temp = new BSONvalue(len);
+            formattedBSON(temp, array);
+            
+            int at = 0;
+            char * key;
+            std::string * tempstr;
+            BSONvalue * v;
+            for(int i = 0, m = object->count(); i < m; ++i){
+                v = object->getAfter(at, key);
+                ++at;
+                tempstr = new std::string(key);
+                data._string = tempstr;
+                temp->changeTo(16, data, true);
+                formattedBSON(temp, array);
+                formattedBSON(v, array);
+                delete tempstr;
+            }
+            temp->deleteData();
+            delete temp;
+            return;
+        }
+            
+    }
+    return;
 }

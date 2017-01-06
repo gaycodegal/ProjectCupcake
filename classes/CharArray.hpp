@@ -27,16 +27,28 @@ public:
     std::string * getString(int & len);
     void rollBack();
     void rollBackBy(int amount);
+    
     Uint32 getUint32();
     Uint16 getUint16();
     Uint8 getUint8();
+    
+    void writeUint32(uint32_t n);
+    void writeUint16(uint16_t n);
+    void writeUint8(uint8_t n);
     
     int32_t getInt32();
     int16_t getInt16();
     int8_t getInt8();
     
+    void writeInt32(int32_t n);
+    void writeInt16(int16_t n);
+    void writeInt8(int8_t n);
+    
     float getFloat();
     
+    void writeFloat(float f);
+    
+    void writeString(const std::string * s, const bool nullTerm = false);
 };
 
 

@@ -15,8 +15,8 @@ int test_bson(){
     CharArray * array = new CharArray(file);
     BSONvalue * val = parseBSON(array);
     std::string * m = asPretty(val);
-    if(m->compare("{\"f\": 23423,\n\"o\": nan,\n\"a\": -239402394,\n\"j\": -inf,\n}") != 0){
-        printf("failed pretty bson, returned: %s", m->c_str());
+    if(m->compare("{\"a\": -239402394,\"array\": [-1,-128,-256,-80000,1,2,127,255,30000,80000,],\"o\": nan,\"f\": 23423,\"j\": -inf}") != 0){
+        printf("failed pretty bson, returned: '''%s'''\n", m->c_str());
     }
     val->deleteData();
     delete m;

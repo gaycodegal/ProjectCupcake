@@ -35,7 +35,22 @@ public:
     int type;
     BSONdata data;
     BSONvalue();
+    BSONvalue(int32_t number);
+    BSONvalue(uint32_t number);
+    /**
+     WARNING we will delete string if doDelete is called on us.
+     */
+    BSONvalue(std::string * string);
+    /**
+     WARNING we will delete object if doDelete is called on us.
+     */
+    BSONvalue(HashMap<BSONvalue *> * object);
+    /**
+     WARNING we will delete array if doDelete is called on us.
+     */
+    BSONvalue(GrowArray<BSONvalue *> * array);
     BSONvalue(int type, BSONdata data);
+    
     void changeTo(int type, BSONdata data, bool doDelete);
     void deleteData();
     ~BSONvalue();

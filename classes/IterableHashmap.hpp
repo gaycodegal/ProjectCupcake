@@ -23,6 +23,10 @@ public:
     /**
      a hash map, but you can iterate it's contents
      only use if you need the ability to iterate contents
+     
+     if you need to iterate *sometimes* still use hashmap. it
+     can still do that. this is just for like if you need
+     to do an unreasonable amount of iteration.
      */
     IterableHashMap(int size = 32, Data nill = 0) {
         nill_ = nill;
