@@ -9,9 +9,6 @@
 #include "BSONObject.hpp"
 
 
-/**
- 
- */
 BSONvalue::BSONvalue(){
     type = 2;
     data._int = 0;
@@ -27,9 +24,6 @@ BSONvalue::BSONvalue(uint32_t number){
     data._int = number;
 }
 
-/**
- 
- */
 BSONvalue::BSONvalue(int type, BSONdata data):type(type),data(data){
     
 }

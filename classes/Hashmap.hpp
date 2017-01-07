@@ -216,7 +216,7 @@ public:
 
         while(entry != NULL){
 
-            int rhash = entry->hash;
+            long rhash = entry->hash;
             int hash = (rhash % size);
         
             // rekey entry in major position if it's not already in major position

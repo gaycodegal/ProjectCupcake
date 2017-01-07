@@ -37,27 +37,15 @@
 		182F00D41E0F421300F2EB37 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F00D31E0F421300F2EB37 /* IOKit.framework */; };
 		182F00D51E0F422000F2EB37 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F007CA1E0F3B09002A30B4 /* libSDL2.a */; };
 		182F00D81E0F424E00F2EB37 /* RandomSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00AC1E0F40D700F2EB37 /* RandomSquares.cpp */; };
-		182F00D91E0F424E00F2EB37 /* RandomSquares.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00AD1E0F40D700F2EB37 /* RandomSquares.hpp */; };
 		182F00DA1E0F424E00F2EB37 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00991E0F40CB00F2EB37 /* Component.cpp */; };
-		182F00DB1E0F424E00F2EB37 /* Component.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F009A1E0F40CB00F2EB37 /* Component.hpp */; };
 		182F00DC1E0F424E00F2EB37 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F009B1E0F40CB00F2EB37 /* Core.cpp */; };
-		182F00DD1E0F424E00F2EB37 /* Core.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F009C1E0F40CB00F2EB37 /* Core.hpp */; };
 		182F00DE1E0F424E00F2EB37 /* CoreEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F009D1E0F40CB00F2EB37 /* CoreEvent.cpp */; };
-		182F00DF1E0F424E00F2EB37 /* CoreEvent.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F009E1E0F40CB00F2EB37 /* CoreEvent.hpp */; };
 		182F00E01E0F424E00F2EB37 /* EventDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F009F1E0F40CB00F2EB37 /* EventDispatcher.cpp */; };
-		182F00E11E0F424E00F2EB37 /* EventDispatcher.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A01E0F40CB00F2EB37 /* EventDispatcher.hpp */; };
 		182F00E21E0F424E00F2EB37 /* EventListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A11E0F40CB00F2EB37 /* EventListener.cpp */; };
-		182F00E31E0F424E00F2EB37 /* EventListener.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A21E0F40CB00F2EB37 /* EventListener.hpp */; };
 		182F00E41E0F424E00F2EB37 /* GrowArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A31E0F40CB00F2EB37 /* GrowArray.cpp */; };
-		182F00E51E0F424E00F2EB37 /* GrowArray.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A41E0F40CB00F2EB37 /* GrowArray.hpp */; };
 		182F00E61E0F424E00F2EB37 /* Hashmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A51E0F40CB00F2EB37 /* Hashmap.cpp */; };
-		182F00E71E0F424E00F2EB37 /* Hashmap.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A61E0F40CB00F2EB37 /* Hashmap.hpp */; };
 		182F00E81E0F424E00F2EB37 /* IterableHashmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A71E0F40CB00F2EB37 /* IterableHashmap.cpp */; };
-		182F00E91E0F424E00F2EB37 /* IterableHashmap.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A81E0F40CB00F2EB37 /* IterableHashmap.hpp */; };
-		182F00EA1E0F424E00F2EB37 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00A91E0F40CB00F2EB37 /* Queue.cpp */; };
-		182F00EB1E0F424E00F2EB37 /* Queue.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00AA1E0F40CB00F2EB37 /* Queue.hpp */; };
 		182F00EC1E0F424E00F2EB37 /* global_init.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00961E0F40C300F2EB37 /* global_init.cpp */; };
-		182F00ED1E0F424E00F2EB37 /* global_init.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182F00971E0F40C300F2EB37 /* global_init.hpp */; };
 		182F01081E0F456100F2EB37 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F00F51E0F426E00F2EB37 /* SDL2_ttf.framework */; };
 		182F01091E0F456900F2EB37 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182F01011E0F427E00F2EB37 /* SDL2_image.framework */; };
 		183666941E19DECB009B2548 /* test_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666931E19DECB009B2548 /* test_queue.cpp */; };
@@ -70,19 +58,11 @@
 		1898C3E01E1DF5590093CEC4 /* FileEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3DE1E1DF5590093CEC4 /* FileEditor.cpp */; };
 		1898C3E11E1DF5590093CEC4 /* FileEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1898C3DF1E1DF5590093CEC4 /* FileEditor.h */; };
 		1898C3E51E1DF7350093CEC4 /* resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1898C3E41E1DF71D0093CEC4 /* resources */; };
-		1898C3E61E1DF7DE0093CEC4 /* TestModule.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A21E19DF7A009B2548 /* TestModule.hpp */; };
 		1898C3E71E1DF7DE0093CEC4 /* test_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666931E19DECB009B2548 /* test_queue.cpp */; };
-		1898C3E81E1DF7DE0093CEC4 /* test_hash.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96471E1AD72C00FCB988 /* test_hash.hpp */; };
-		1898C3E91E1DF7DE0093CEC4 /* test_iter_hash.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96531E1AD87200FCB988 /* test_iter_hash.hpp */; };
-		1898C3EA1E1DF7DE0093CEC4 /* testing_functions.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 183666A61E1AD418009B2548 /* testing_functions.hpp */; };
 		1898C3EB1E1DF7DE0093CEC4 /* test_bson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3CD1E1DD44B0093CEC4 /* test_bson.cpp */; };
-		1898C3EC1E1DF7DE0093CEC4 /* test_bson.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3CE1E1DD44B0093CEC4 /* test_bson.hpp */; };
-		1898C3ED1E1DF7E30093CEC4 /* CharArray.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD72D1E1C768E008D9FD1 /* CharArray.hpp */; };
 		1898C3EE1E1DF7E30093CEC4 /* CharArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD72C1E1C768E008D9FD1 /* CharArray.cpp */; };
 		1898C3EF1E1DF7E80093CEC4 /* FileEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3DE1E1DF5590093CEC4 /* FileEditor.cpp */; };
-		1898C3F01E1DF7E80093CEC4 /* FileEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 1898C3DF1E1DF5590093CEC4 /* FileEditor.h */; };
 		1898C3F11E1DF7E80093CEC4 /* BSONObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD7281E1C5EE5008D9FD1 /* BSONObject.cpp */; };
-		1898C3F21E1DF7E80093CEC4 /* BSONObject.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 182CD7291E1C5EE5008D9FD1 /* BSONObject.hpp */; };
 		1898C3F41E1EB75E0093CEC4 /* test_queue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1898C3F31E1EB75E0093CEC4 /* test_queue.hpp */; };
 		18CE96541E1AD87200FCB988 /* test_iter_hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18CE96521E1AD87200FCB988 /* test_iter_hash.cpp */; };
 		18F007CF1E0F3B40002A30B4 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F007CA1E0F3B09002A30B4 /* libSDL2.a */; };
@@ -872,44 +852,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1898C3EF1E1DF7E80093CEC4 /* FileEditor.cpp in Sources */,
-				1898C3F01E1DF7E80093CEC4 /* FileEditor.h in Sources */,
 				1898C3F11E1DF7E80093CEC4 /* BSONObject.cpp in Sources */,
-				1898C3F21E1DF7E80093CEC4 /* BSONObject.hpp in Sources */,
-				1898C3ED1E1DF7E30093CEC4 /* CharArray.hpp in Sources */,
 				1898C3EE1E1DF7E30093CEC4 /* CharArray.cpp in Sources */,
-				1898C3E61E1DF7DE0093CEC4 /* TestModule.hpp in Sources */,
 				1898C3E71E1DF7DE0093CEC4 /* test_queue.cpp in Sources */,
-				1898C3E81E1DF7DE0093CEC4 /* test_hash.hpp in Sources */,
-				1898C3E91E1DF7DE0093CEC4 /* test_iter_hash.hpp in Sources */,
-				1898C3EA1E1DF7DE0093CEC4 /* testing_functions.hpp in Sources */,
 				1898C3EB1E1DF7DE0093CEC4 /* test_bson.cpp in Sources */,
-				1898C3EC1E1DF7DE0093CEC4 /* test_bson.hpp in Sources */,
 				182F00D81E0F424E00F2EB37 /* RandomSquares.cpp in Sources */,
-				182F00D91E0F424E00F2EB37 /* RandomSquares.hpp in Sources */,
 				182F00DA1E0F424E00F2EB37 /* Component.cpp in Sources */,
-				182F00DB1E0F424E00F2EB37 /* Component.hpp in Sources */,
 				182F00DC1E0F424E00F2EB37 /* Core.cpp in Sources */,
-				182F00DD1E0F424E00F2EB37 /* Core.hpp in Sources */,
 				182F00DE1E0F424E00F2EB37 /* CoreEvent.cpp in Sources */,
-				182F00DF1E0F424E00F2EB37 /* CoreEvent.hpp in Sources */,
 				182F00E01E0F424E00F2EB37 /* EventDispatcher.cpp in Sources */,
-				182F00E11E0F424E00F2EB37 /* EventDispatcher.hpp in Sources */,
 				182F00E21E0F424E00F2EB37 /* EventListener.cpp in Sources */,
 				183666A41E1AD31C009B2548 /* test_hash.cpp in Sources */,
 				18CE96541E1AD87200FCB988 /* test_iter_hash.cpp in Sources */,
 				183666A71E1AD418009B2548 /* testing_functions.cpp in Sources */,
-				182F00E31E0F424E00F2EB37 /* EventListener.hpp in Sources */,
 				182F00E41E0F424E00F2EB37 /* GrowArray.cpp in Sources */,
-				182F00E51E0F424E00F2EB37 /* GrowArray.hpp in Sources */,
 				182F00E61E0F424E00F2EB37 /* Hashmap.cpp in Sources */,
-				182F00E71E0F424E00F2EB37 /* Hashmap.hpp in Sources */,
 				182F00E81E0F424E00F2EB37 /* IterableHashmap.cpp in Sources */,
-				182F00E91E0F424E00F2EB37 /* IterableHashmap.hpp in Sources */,
-				182F00EA1E0F424E00F2EB37 /* Queue.cpp in Sources */,
-				182F00EB1E0F424E00F2EB37 /* Queue.hpp in Sources */,
 				182F00EC1E0F424E00F2EB37 /* global_init.cpp in Sources */,
 				183666A11E19DF6B009B2548 /* TestModule.cpp in Sources */,
-				182F00ED1E0F424E00F2EB37 /* global_init.hpp in Sources */,
 				182F00BE1E0F416000F2EB37 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

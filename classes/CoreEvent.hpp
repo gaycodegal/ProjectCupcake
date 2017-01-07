@@ -24,7 +24,7 @@ public:
      Any event or message that needs to be sent
      */
     CoreEvent(long timestamp, const char * name):timestamp(timestamp){
-        unsigned int name_length = std::strlen(name) + 1;
+        unsigned int name_length = (int)std::strlen(name) + 1;
         this->name = new char[name_length];
         std::memcpy(this->name, name, name_length);
     }
