@@ -15,11 +15,29 @@ int test_bson(){
     CharArray * array = new CharArray(file);
     BSONvalue * val = parseBSON(array);
     std::string * m = asPretty(val);
-    if(m->compare("{\"a\": -239402394,\"array\": [-1,-128,-256,-80000,1,2,127,255,30000,80000,],\"o\": nan,\"f\": 23423,\"j\": -inf}") != 0){
+    std::string compareto("{\"a\": -239402394,\"array\": [-1,-128,-256,-80000,1,2,127,255,30000,80000,],\"o\": nan,\"f\": 23423,\"j\": -inf}");
+    
+    if(m->compare(compareto) != 0){
         printf("failed pretty bson, returned: '''%s'''\n", m->c_str());
     }
-    val->deleteData();
+    
+    int formatLen = -1;
+    char * formatted = formatBSON(val, formatLen);
+    
+    CharArray * formattedArray = new CharArray(formatted);
     delete m;
+    m = asPretty(val);
+    if(m->compare(compareto) != 0){
+        printf("formatted, len: %i data: '''%s'''\n",formatLen,formatted);
+        printf("failed conversion both ways bson io, returned: '''%s'''\n", m->c_str());
+    }
+    
+    delete m;
+
+    
+    delete formattedArray;
+    
+    val->deleteData();
     delete array;
     delete val;
     return 0;

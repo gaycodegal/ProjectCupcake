@@ -20,7 +20,7 @@ private:
     char * buffer;
     bool ownsBuffer;
 public:
-    CharArray(char * buffer, int readHead = 0);
+    CharArray(char * buffer, const int readHead = 0, const bool owner = true);
     ~CharArray();
     char * getCString(int & len);
     char * getBuffer();

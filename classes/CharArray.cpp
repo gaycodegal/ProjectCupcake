@@ -8,10 +8,10 @@
 
 #include "CharArray.hpp"
 
-CharArray::CharArray(char * buffer, int readHead){
+CharArray::CharArray(char * buffer, const int readHead, const bool owner){
     this->readHead = readHead;
     this->buffer = buffer;
-    ownsBuffer = true;
+    ownsBuffer = owner;
 }
 
 CharArray::~CharArray(){

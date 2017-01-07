@@ -67,16 +67,15 @@ BSONvalue::~BSONvalue(){
 }
 
 
-void asPretty(BSONvalue * val, std::stringstream & stream);
 
-std::string * asPretty(BSONvalue * val){
+std::string * asPretty(const BSONvalue * val){
     std::stringstream stream;
     asPretty(val, stream);
     std::string * ret = new std::string(stream.str());
     return ret;
 }
 
-void asPretty(BSONvalue * val, std::stringstream & stream){
+void asPretty(const BSONvalue * val, std::stringstream & stream){
     switch (val->type) {
         case 1:
             stream << "null";
@@ -230,7 +229,7 @@ BSONvalue * parseBSON(CharArray * array){
     return NULL;
 }
 
-int formattedBSONLength(BSONvalue * value){
+int formattedBSONLength(const BSONvalue * value){
     int r = 1; // type
     switch (value->type) {
         case 1:
@@ -316,7 +315,7 @@ int formattedBSONLength(BSONvalue * value){
 }
 
 
-void formattedBSON(BSONvalue * value, CharArray * array){
+void formattedBSON(const BSONvalue * value, CharArray * array){
     array->writeUint8(value->type);
     switch (value->type) {
         case 1:
@@ -402,4 +401,13 @@ void formattedBSON(BSONvalue * value, CharArray * array){
             
     }
     return;
+}
+
+char * formatBSON(const BSONvalue * value, int & length){
+    int len = formattedBSONLength(value);
+    char * data = new char[len];
+    CharArray * array = new CharArray(data, 0, false);
+    formattedBSON(value, array);
+    delete array;
+    return data;
 }

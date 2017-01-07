@@ -56,9 +56,11 @@ public:
     ~BSONvalue();
 };
 
-std::string * asPretty(BSONvalue * val);
+char * formatBSON(const BSONvalue * value, int & length);
 
-void asPretty(BSONvalue * val, std::stringstream & stream);
+std::string * asPretty(const BSONvalue * val);
+
+void asPretty(const BSONvalue * val, std::stringstream & stream);
 
 BSONvalue * parseBSON(CharArray * array);
 
