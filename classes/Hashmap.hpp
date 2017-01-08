@@ -21,19 +21,27 @@ public:
     unsigned long hash;
     Data value;
     HashEntry(const char * key, unsigned long hash, Data value) {
-        unsigned long length = std::strlen(key) + 1;
-        this->key = new char[length];
-        std::strcpy(this->key, key);
-        this->key[length - 1] = '\0';
+        if(key != NULL){
+            unsigned long length = std::strlen(key) + 1;
+            this->key = new char[length];
+            std::strcpy(this->key, key);
+            this->key[length - 1] = '\0';
+        }else{
+            this->key = NULL;
+        }
         this->hash = hash;
         this->value = value;
     }
     
     ~HashEntry(){
-        delete [] key;
+        if(key != NULL)
+            delete [] key;
     }
     
     bool keyEquals(unsigned long hash, const char * other) {
+        //Handles symbols
+        if(key == NULL || other == NULL)
+            return (hash == this->hash && key == NULL && other == NULL);
         if(hash != this->hash){
             return false;
         }
@@ -80,9 +88,10 @@ private:
         
         nrem = count_ = 0;
         for (int i = 0; i < oldSize; i++){
-            if (oldTable[i] != NULL && oldTable[i] != rem){
-                put(oldTable[i]->key, oldTable[i]->value);
-                delete oldTable[i];
+            HashEntry<Obj> * entry = oldTable[i];
+            if (entry != NULL && entry != rem){
+                put(entry->key, entry->hash, entry->value);
+                delete entry;
             }
         }
         delete[] oldTable;
@@ -110,10 +119,41 @@ public:
     }
     
     /**
-     remove the entry at key provided.
-     note you'll need to delete the entry returned
+     remove the thing at the symbol provided.
+     */
+    void remove(const unsigned long symbol){
+        delete this->removeEntry(NULL, symbol);
+    }
+    
+    /**
+     remove the thing at the key provided.
+     \return NULL if key is null, or the entry otherwise
+     also NULL if not found
      */
     HashEntry<Obj> * removeEntry(const char * key){
+        if(key == NULL)
+            return NULL;
+        unsigned long rhash = stringHash(key);
+        return this->removeEntry(key, rhash);
+    }
+    
+    /**
+     remove the thing at the key provided.
+     \return NULL if key is null, or the entry otherwise
+     also NULL if not found
+     */
+    HashEntry<Obj> * removeEntry(const unsigned long symbol){
+        return this->removeEntry(NULL, symbol);
+    }
+    
+    /**
+     remove the entry at key or symbol provided.
+     note you'll need to delete the entry returned
+     \return NULL if key is null, or the entry otherwise
+     also NULL if not found
+
+     */
+    HashEntry<Obj> * removeEntry(const char * key, const unsigned long symbol){
         //technically not needed, but why not
         if(nrem + count_ >= (float)this->size * 0.7f){
             if(nrem > (float)this->size * 0.2f)
@@ -121,14 +161,10 @@ public:
             else
                 this->expand(this->size << 1);
         }
+       
+        int hash = (symbol % size);
         
-        if(key == NULL)
-            return NULL;
-        
-        unsigned long rhash = stringHash(key);
-        int hash = (rhash % size);
-        
-        while (table[hash] != NULL && (!table[hash]->keyEquals(rhash, key)))
+        while (table[hash] != NULL && (!table[hash]->keyEquals(symbol, key)))
             hash = (hash + 1) % size;
         
         if (table[hash] == NULL){
@@ -184,11 +220,41 @@ public:
     }
     
     /**
+     get the object stored at a symbol
+     */
+    Obj get(const unsigned long symbol) const{
+        int hash = (symbol % size);
+        while (table[hash] != NULL && (!table[hash]->keyEquals(symbol, NULL)))
+            hash = (hash + 1) % size;
+        if (table[hash] == NULL)
+            return nill;
+        else
+            return table[hash]->getValue();
+    }
+    
+    /**
      put an object at a key.
      returns whether the object already existed
      */
     bool put(const char * key, Obj value) {
+        
         return put(createEntry(key, value), key);
+    }
+    
+    /**
+     put an object at a symbol.
+     returns whether the object already existed
+     */
+    bool put(const unsigned long symbol, Obj value) {
+        return put(createEntry(NULL, symbol, value), NULL);
+    }
+    
+    /**
+     put an object at a key/symbol.
+     returns whether the object already existed
+     */
+    bool put(const char * key, const unsigned long symbol, Obj value) {
+        return put(createEntry(key, symbol, value), key);
     }
     
     /**
@@ -203,6 +269,19 @@ public:
         }
         unsigned long rhash = stringHash(key);
         return new HashEntry<Obj>(key, rhash, value);
+    }
+    
+    /**
+     create an entry for insertion into the table
+     */
+    HashEntry<Obj> *  createEntry(const char * key, const unsigned long symbol, Obj value) {
+        if(nrem + count_ >= (float)this->size * 0.7f){
+            if(nrem > (float)this->size * 0.2f)
+                this->expand(this->size);
+            else
+                this->expand(this->size << 1);
+        }
+        return new HashEntry<Obj>(key, symbol, value);
     }
     
     /**

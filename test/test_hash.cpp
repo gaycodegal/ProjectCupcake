@@ -64,6 +64,49 @@ int test_hash(){
     assertEq(temp->get("a"), -1, "fail rem");
     assertEq(temp->get("T"), -1, "fail rem");
     assertEq(temp->get("v"), -1, "fail rem");
+    
+    temp->put(1235, 6);
+    temp->put(3128, 7);
+    temp->put(1349, 8); // if an error occurrs here it's due to re-keying
+    
+    assertEq(temp->get("v"), -1, "fail symbol insertion");
+    assertEq(temp->get("d"), 10, "fail symbol insertion");
+    assertEq(temp->get("a"), -1, "fail symbol insertion");
+    assertEq(temp->get("f"), 12, "fail symbol insertion");
+    
+    
+    assertEq(temp->get(1235), 6, "fail symbol insertion");
+    
+    assertEq(temp->get("g"), 4, "fail symbol insertion");
+    assertEq(temp->get("A"), 1, "fail symbol insertion");
+    assertEq(temp->get("b"), 8, "fail symbol insertion");
+    
+    assertEq(temp->get(3128), 7, "fail symbol insertion");
+    assertEq(temp->get(1349), 8, "fail symbol insertion");
+    
+    assertEq(temp->get("T"), -1, "fail symbol insertion");
+    assertEq(temp->get("c"), 2, "fail symbol insertion");
+    
+    temp->remove(3128);
+    
+    
+    assertEq(temp->get("v"), -1, "fail symbol removal");
+    assertEq(temp->get("d"), 10, "fail symbol removal");
+    assertEq(temp->get("a"), -1, "fail symbol removal");
+    assertEq(temp->get("f"), 12, "fail symbol removal");
+    
+    
+    assertEq(temp->get(1235), 6, "fail symbol removal");
+    
+    assertEq(temp->get("g"), 4, "fail symbol removal");
+    assertEq(temp->get("A"), 1, "fail symbol removal");
+    assertEq(temp->get("b"), 8, "fail symbol removal");
+    
+    assertEq(temp->get(3128), -1, "fail symbol removal");
+    assertEq(temp->get(1349), 8, "fail symbol removal");
+    
+    assertEq(temp->get("T"), -1, "fail symbol removal");
+    assertEq(temp->get("c"), 2, "fail symbol removal");
 
     delete temp;
 
