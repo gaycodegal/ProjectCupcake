@@ -2791,6 +2791,7 @@
 				HEADER_SEARCH_PATHS = /usr/X11R6/include;
 				INFOPLIST_FILE = "Info-Framework.plist";
 				INSTALL_PATH = "@rpath";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-liconv";
 				PRODUCT_NAME = SDL2;
 				PROVISIONING_PROFILE = "";
@@ -2850,6 +2851,7 @@
 				HEADER_SEARCH_PATHS = /usr/X11R6/include;
 				INFOPLIST_FILE = "Info-Framework.plist";
 				INSTALL_PATH = "@rpath";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-liconv";
 				PRODUCT_NAME = SDL2;
 				PROVISIONING_PROFILE = "";
