@@ -21,7 +21,7 @@ int randomInt(int min, int max)
 /**
  draws some random squares onto the renderer provided
  */
-void render(SDL_Renderer *renderer, Core * core)
+void RandomSquares::render(SDL_Renderer *renderer, Core * core)
 {
     SDL_Rect screen_rect = core->screen_rect;
     

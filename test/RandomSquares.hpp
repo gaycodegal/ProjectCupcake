@@ -24,7 +24,6 @@ private:
         Core::getInstance()->putComponent(this->name, this);
     }
 public:
-    
     static RandomSquares * getInstance(){
         static RandomSquares * instance = new RandomSquares();
         return instance;
@@ -38,6 +37,9 @@ public:
         Core * core = Core::getInstance();
         render(core->renderer, core);
     }
+    
+    void render(SDL_Renderer *renderer, Core * core);
+    
     ~RandomSquares(){
         
     }
